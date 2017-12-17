@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <title>Data Dashboard</title>
+  </head>
+  <body>
+    <header>
+      <!-- menu -->
+      <button id="butn">
+        <hr>
+        <hr>
+        <hr>
+    </button>
+    <nav id="menu" class="open-menu">
+        <ul>
+            <li><a href="#">My user</a></li>
+            <hr>
+            <li><a href="#">Add student</a></li>
+            <hr>
+            <li><a href="#">Remove student</a></li>
+            <hr>
+            <li><a href="#">Add sprint</a></li>
+        </ul>
+    </nav>
+
+    <img class="logo" src="assets/images/logo-laboratoria.svg" alt="logo-laboratoria">
+    </header>´
+    <!-- menú desplegable -->
+    <nav id="nav-options">
+      <select name="options" id="options">
+        <option value="---">Elige una sede</option>
+        <option value="2015 - I">LIMA 2015 - I</option>
+        <option value="2012 - II">LIMA 2015 - II</option>
+        <option value="2012 - II">LIMA 2016 - I</option>
+        <option value="2012 - II">LIMA 2016 - II</option>
+        <option value="2012 - II">LIMA 2017 - I</option>
+        <option value="2012 - II">LIMA 201 - II</option>
+        <option value="2015 - I">AREQUIPA 2015 - I</option>
+        <option value="2015 - II">AREQUIPA 2015 - II</option>
+        <option value="2015 - II">AREQUIPA 2016 - I</option>
+        <option value="2015 - II">AREQUIPA 2016 - II</option>
+        <option value="2015 - II">AREQUIPA 2017 - I</option>
+        <option value="2015 - II">AREQUIPA 2017 - II</option>
+        <option value="2015 - I">SANTIAGO DE CHILE 2015 - I</option>
+        <option value="2015 - II">SANTIAGO DE CHILE 2015 - II</option>
+        <option value="2015 - I">CIUDAD DE MÉXICO 2015 - I</option>
+        <option value="2015 - II">CIUDAD DE MÉXICO 2015 - II</option>
+        <option value="2015 - I">CIUDAD DE MÉXICO 2016 - I</option>
+        <option value="2015 - I">CIUDAD DE MÉXICO 2016 - II</option>
+        <option value="2015 - I">CIUDAD DE MÉXICO 2017 - I</option>
+        <option value="2015 - I">CIUDAD DE MÉXICO 2017 - II</option>
+      </select>
+
+      <!-- menú botones -->
+      <div class="nav-menu">
+          <button class="overview">Overview</button>
+          <button class="students">Students</button>
+          <button class="teachers">Teachers</button>
+      </div>
+    </nav>
+    <!--recuadros con estadísticas -->
+    <section class="chart-1">
+      <!--recuadros pequeños del interior -->
+      <div class="standard-item">
+        <p>Enrollment</p>
+        <div class="stadistic1">
+          <p class="item">120</p>
+          <p class="item-light">#Students currently enrolled</p>
+        </div>
+        <div class="stadistic2">
+            <p class="item">20%</p>
+            <p class="item-light">% dropout</p>
+        </div>
+      </div>
+      <div class="standard-item">Archievement</div>
+      <div class="standard-item">Net Promote Score</div>
+    </section>
+
+
+
+
+		<!-- Base de datos -->
+		<script src="./js/data.js"></script>
+		<!-- Aquí va tus archivos JS -->
+    <script src="./js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16pt;
+  }
+
+body {
+    background-color: #F7F7F7;
+}
+
+header {
+    height: 10vh;
+    background-color: #fff;
+
+}
+
+img.logo {
+    width: 15%;
+    left: 42vw;
+    position: absolute;
+    top: .7vh;
+}
+
+/*menú */
+button > #butn {
+  width: 40vw;
+  height: 40vh;
+  font-size: 10vw;
+
+
+}
+/* ----- caracteristicas de los <p> ----- */
+nav > #menu {
+
+  text-align: center;
+  background-color: #FFF;
+  display: absolute;
+  top: 5vh;
+  left: 2vw;
+
+}
+
+ul {
+  height: 35vh;
+  width: 15vw;
+  padding: 1vw;
+  background-color:#EEEEEB ;
+  list-style-type: none;
+  position: relative;
+}
+
+li {
+  width: 15vw;
+
+
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 1.5vw;
+  font-weight: bolder;
+}
+li:hover {
+  background-color: #FFC300;
+
+}
+
+a:hover {
+  color: white;
+}
+
+.open-menu {
+  display: none;
+}
+
+.close-menu {
+  display: block;
+}
+
+
+/* menú fijo*/
+#nav-options {
+    background-color: #ffc107;
+    height: 18vh;
+
+}
+
+/*Menú de navegación*/
+#options {
+    margin-left: 3%;
+    height: 10vh;
+    background-color: #ffc107;
+    border: none;
+    outline: none;
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+div.nav-menu {
+    margin-left: 3%;
+    margin-top: 1%;
+    border: none;
+}
+
+button.overview {
+    background-color: #ffc107;
+    border: none;
+    outline: none;
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+button.overview:hover {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+button.students {
+    background-color: #ffc107;
+    border: none;
+    margin-left: 2%;
+    outline: none;
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+button.students:hover {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+button.teachers {
+    background-color: #ffc107;
+    border: none;
+    margin-left: 2%;
+    outline: none;
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+button.teachers:hover {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+/*  Cont blanco */
+div.standard-item {
+    text-transform: uppercase;
+    margin-left: 3vh;
+    margin-top: 5vh;
+    padding-top: 3vh;
+    padding: 3vh;
+    display: inline-block;
+    width: 28%;
+    height: 50vh;
+    background-color: #fff;
+    font-family: 'Roboto';
+    position: flex;
+
+}
+/*  Cont gris  */
+div>.stadistic1  {
+  display: inline-block;
+
+    background-color: #F7F7F7;
+    width: 10%;
+    height: 20%;
+    margin-top: 5%;
+    text-align: center;
+    margin-left: 190px;
+    position: absolute;
+}
+div.stadistic2 {
+  display: inline-block;
+   position: absolute;
+    background-color: #F7F7F7;
+    width: 10%;
+    height: 20%;
+    margin-top: 5%;
+    text-align: center;
+    margin-left: 3px;
+}
+p.item {
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 700;
+    
+
+}
+
+p.item-light {
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 9pt;
+}
