@@ -2,86 +2,233 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+    </script>
+    <title>Data Dashboard</title>
+    <link rel="icon" href="assets/icons/icon_head.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
-    <title>Data Dashboard</title>
   </head>
   <body>
     <header>
-      <!-- menu -->
-      <button id="butn">
-        <hr>
-        <hr>
-        <hr>
-    </button>
-    <nav id="menu" class="open-menu">
+      <figure class="box-logo">
+        <img class="logo-header" src="assets/images/logo-laboratoria.svg" alt="logo laboratoria">
+      </figure>
+      <nav class="box-nav">
         <ul>
-            <li><a href="#">My user</a></li>
-            <hr>
-            <li><a href="#">Add student</a></li>
-            <hr>
-            <li><a href="#">Remove student</a></li>
-            <hr>
-            <li><a href="#">Add sprint</a></li>
+          <li><i class="fa fa-bars fa-2x" aria-hidden="true" id="open-animated-menu"></i></li>
         </ul>
-    </nav>
-
-    <img class="logo" src="assets/images/logo-laboratoria.svg" alt="logo-laboratoria">
-    </header>´
-    <!-- menú desplegable -->
-    <nav id="nav-options">
-      <select name="options" id="options">
-        <option value="---">Elige una sede</option>
-        <option value="2015 - I">LIMA 2015 - I</option>
-        <option value="2012 - II">LIMA 2015 - II</option>
-        <option value="2012 - II">LIMA 2016 - I</option>
-        <option value="2012 - II">LIMA 2016 - II</option>
-        <option value="2012 - II">LIMA 2017 - I</option>
-        <option value="2012 - II">LIMA 201 - II</option>
-        <option value="2015 - I">AREQUIPA 2015 - I</option>
-        <option value="2015 - II">AREQUIPA 2015 - II</option>
-        <option value="2015 - II">AREQUIPA 2016 - I</option>
-        <option value="2015 - II">AREQUIPA 2016 - II</option>
-        <option value="2015 - II">AREQUIPA 2017 - I</option>
-        <option value="2015 - II">AREQUIPA 2017 - II</option>
-        <option value="2015 - I">SANTIAGO DE CHILE 2015 - I</option>
-        <option value="2015 - II">SANTIAGO DE CHILE 2015 - II</option>
-        <option value="2015 - I">CIUDAD DE MÉXICO 2015 - I</option>
-        <option value="2015 - II">CIUDAD DE MÉXICO 2015 - II</option>
-        <option value="2015 - I">CIUDAD DE MÉXICO 2016 - I</option>
-        <option value="2015 - I">CIUDAD DE MÉXICO 2016 - II</option>
-        <option value="2015 - I">CIUDAD DE MÉXICO 2017 - I</option>
-        <option value="2015 - I">CIUDAD DE MÉXICO 2017 - II</option>
-      </select>
-
-      <!-- menú botones -->
-      <div class="nav-menu">
-          <button class="overview">Overview</button>
-          <button class="students">Students</button>
-          <button class="teachers">Teachers</button>
-      </div>
-    </nav>
-    <!--recuadros con estadísticas -->
-    <section class="chart-1">
-      <!--recuadros pequeños del interior -->
-      <div class="standard-item">
-        <p>Enrollment</p>
-        <div class="stadistic1">
-          <p class="item">120</p>
-          <p class="item-light">#Students currently enrolled</p>
+      </nav>
+    </header>
+    <main>
+      <section class="box-filter">
+        <div class="select-filter">
+          <select name="promo" id="promo-filter">
+              <option value="" hidden>Selecciona una opción</option>
+              <optgroup label="Arequipa">
+                <option value="AQP" data-year="2016-2">AQP 2016 - II</option>
+                <option value="AQP" data-year="2017-1">AQP 2017 - I</option>
+              </optgroup>
+              <optgroup label="Lima">
+                <option value="LIM" data-year="2016-2">LIM 2016 - II</option>
+                <option value="LIM" data-year="2017-1">LIM 2017 - I</option>
+                <option value="LIM" data-year="2017-2">LIM 2017 - II</option>
+              </optgroup>
+              <optgroup label="México">
+                <option value="CDMX" data-year="2017-1">CDMX 2017 - I</option>
+                <option value="CDMX" data-year="2017-2">CDMX 2017 - II</option>
+              </optgroup>
+              <optgroup label="Chile">
+                <option value="SCL" data-year="2016-2">SCL 2016 - II</option>
+                <option value="SCL" data-year="2017-1">SCL 2017 - I</option>
+                <option value="SCL" data-year="2017-2">SCL 2017 - II</option>
+              </optgroup>
+            </select>
         </div>
-        <div class="stadistic2">
-            <p class="item">20%</p>
-            <p class="item-light">% dropout</p>
+        <ul class="tabs">
+          <li id="overviewTab" class="tab" data-tab-select = 'tabOverview'>OVERVIEW</li>
+          <li id="studentsTab" class="tab" data-tab-select = 'tabStudents'>STUDENTS</li>
+          <li id="teachersTab" class="tab" data-tab-select = 'tabTeachers'>TEACHERS</li>
+        </ul>
+      </section>
+      <section class="container-graphics" id="section-overview">
+        <!-- ENROLLMENT -->
+        <div class="small-graphic">
+            <span>ENROLLMENT</span>
+            <div class="container-small-boxes">
+              <div class="small-graphic-boxes">
+                <p id="box-enrollment" class="textDate">-</p>
+                <p class="texTbox"># STUDENTS CURRENTLY ENROLLED</p>
+              </div>
+              <div class="small-graphic-boxes">
+                <P id="dropout-percent" class="textDate">-</p>
+                <P>% DROPOUT</P>
+              </div>
+            </div>
+            <div class="graphic" id="enrollment-chart"></div>
+          </div>
+          <!-- ACHIEVEMENT -->
+          <div class="small-graphic">
+            <span>ACHIEVEMENT</span>
+            <div class="container-small-boxes">
+              <div class="small-graphic-boxes">
+                <p id="box-achievement" class="textDate">-</p>
+                <p># STUDENTS THAT MEET THE TARGET</p>
+              </div>
+              <div class="small-graphic-boxes">
+                <p id="percent-achievement" class="textDate">-</p>
+                <p id="total-achievement" class="texTbox">% OF TOTAL ()</P>
+              </div>
+            </div>
+            <div class="graphic" id="achiv-chart"></div>
+          </div>
+          <!-- NET PROMOTER SCORE -->
+          <div class="small-graphic">
+            <span>NET PROMOTER SCORE (NPS)</span>
+            <div class="container-small-boxes">
+              <div class="small-graphic-boxes">
+                <p id="cumulative-nps" class="textDate">-</p>
+                <p class="texTbox">% CUMULATIVE NPS</p>
+              </div>
+              <div class="small-graphic-boxes">
+                <p id="promoters"></p>
+                <p id="passive"></p>
+                <p id="detractor"></p>
+              </div>
+            </div>
+            <div class="graphic" id="nps-chart"></div>
+          </div>
+
+        <!-- TECH SKILLS -->
+        <div class="big-graphic tech-skills">
+          <div>
+            <span>TECH SKILLS</span>
+            <select name="overall" id="overall-tech" class="select-skills">
+              <optgroup label="COMMON CORE">
+                <option value="" hidden>overall (cumulative)</option>
+                <option value="0">Sprint 1</option>
+                <option value="1">Sprint 2</option>
+                <option value="2">Sprint 3</option>
+                <option value="3">Sprint 4</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="boxes-big-graphics">
+            <div class="box1">
+              <p id="students-tech" class="textDate">-</p>
+              <p class="texTbox"># STUDENTS THAT MEET THE TARGET</p>
+            </div>
+            <div class="box2">
+              <p id="percent-tech" class="textDate">-</p>
+              <p id="change-info-tech" class="texTbox">% OF TOTAL</p>
+            </div>
+          </div>
+          <div class="graphic" id="graphicImg">
+            <img src="assets/images/rectangular-graphic.png" alt="grafico">
+          </div>
         </div>
-      </div>
-      <div class="standard-item">Archievement</div>
-      <div class="standard-item">Net Promote Score</div>
-    </section>
+        <!-- LIFE SKILLS -->
+        <div class="big-graphic">
+          <div>
+            <span>LIFE SKILLS</span>
+            <select name="overall" id="overall-life" class="select-skills">
+              <optgroup label="HSE">
+                <option value="" hidden>Latest sprint</option>
+                <option value="0">Sprint 1</option>
+                <option value="1">Sprint 2</option>
+                <option value="2">Sprint 3</option>
+                <option value="3">Sprint 4</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="boxes-big-graphics">
+            <div class="box1">
+              <p id="students-life" class="textDate">-</p>
+              <p class="texTbox"># STUDENTS THAT MEET THE TARGET</p>
+            </div>
+            <div class="box2">
+              <p id="percent-life" class="textDate">-</p>
+              <p id="change-info-life" class="texTbox">% OF TOTAL</p>
+            </div>
+          </div>
+          <div class="graphic" id="graphicImg">
+            <img src="assets/images/rectangular-graphic.png" alt="grafico">
+          </div>
+        </div>
 
 
+        <!-- STUDENT SATISFACTION -->
+        <div class="small-graphic">
+          <span>STUDENT SATISFACTION</span>
+          <div class="container-small-boxes">
+            <div class="small-graphic-boxes">
+              <p id="student-satisf" class="textDate">-</p>
+              <p class="texTbox">% MEETING OR EXCEEDING EXPETATIONS (CUMULATIVE)</p>
+            </div>
+          </div>
+          <div class="graphic" id="satisfaction-chart"></div>
+        </div>
+        <!-- TEACHER RATING -->
+        <div class="small-graphic">
+          <span>TEACHER RATING</span>
+          <div class="container-small-boxes">
+            <div class="small-graphic-boxes">
+              <P id="teacher-rating" class="textDate">-</P>
+              <P class="texTbox">OVERALL TEACHER RATING (CUMULATIVE)</P>
+            </div>
+          </div>
+          <div class="graphic" id="teacher-chart"></div>
+        </div>
+        <!-- JEDI MASTER RATING -->
+        <div class="small-graphic">
+          <span>JEDI MASTER RATING</span>
+          <div class="container-small-boxes">
+            <div class="small-graphic-boxes">
+              <P id="jedi-rating" class="textDate">-</P>
+              <P class="texTbox">OVERALL JEDI RATING (CUMULATIVE)</P>
+            </div>
+          </div>
+          <div class="graphic" id="jedi-chart"></div>
+        </div>
+      </section>
+      <!--Inicio de Menu que aparece y desaparece-->
+      <section class="menu" id="animated-menu">
+        <div class="user">
+          <p class="welcome">TRAINER MANAGER</p>
+          <a href="javascript:void(0)" class="closebtn" id="close-animated-menu">&times;</a>
+          <figure class="photo"></figure>
+          <div id="user-information">
+            <p>Lucile Baratier</p>
+            <p>Log-out</p>
+          </div>
+        </div>
+        <div class="setting"><a href="#">Add student</a></div>
+        <div class="setting"><a href="#">Remove student</a></div>
+        <div class="setting"><a href="#">Add sprint</a></div>
+      </section>
+      <!--Fin de Menu que aparece y desaparece-->
 
+      <section id="section-students" style="display:none">
+        <div class="specialization">
+          <h4>SPECIALIZATION</h4>
+          <form>
+            <input type="checkbox"> UX Design
+            <input type="checkbox"> Front end developer
+          </form>
+        </div>
+        <div id="listOfStudents" class="student-hide">
+        </div>
+      </section>
+      <section id="section-teachers" >
 
+      </section>
+    </main>
+    <!-- Librería moment.js -->
+    <script type="text/javascript" src="js/vendors/moment.js"></script>
 		<!-- Base de datos -->
 		<script src="./js/data.js"></script>
 		<!-- Aquí va tus archivos JS -->
